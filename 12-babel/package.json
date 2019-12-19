@@ -1,0 +1,10 @@
+{
+  "name": "babel-test",
+  "version": "1.0.0",
+  "description": "test babel usage",
+  "main": "index.js",
+  "scripts": {
+  },
+  "author": "ZHU Jie",
+  "license": "ISC"
+}
