@@ -4,7 +4,16 @@
   "description": "test babel usage",
   "main": "index.js",
   "scripts": {
+    "build": "babel js/ --out-dir built/"
   },
   "author": "ZHU Jie",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.7.0"
+  }
 }
