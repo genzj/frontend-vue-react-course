@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>TODO List</title>
+</head>
+
+<body>
+  <div id="demo" v-cloak>
+    <h1>{{ title | uppercase }} ({{ stat.done }} / {{ stat.total }})</h1>
+    <p>
+      <input
+        type="text"
+        @keyup.enter="addTodo($event.target.value, $event.ctrlKey)"
+        placeholder="enter task"
+      >
+    </p>
+    <p v-if="!todos.length">No todos at this moment.</p>
+    <ul>
+      <li v-for="todo in todos"  @click="todo.done = !todo.done">
+        <span v-if="todo.done">✔</span>
+        <span :class="{done: todo.done}">{{ todo.content }}</span>
+      </li>
+    </ul>
+  </div>
+</body>
+
+</html>

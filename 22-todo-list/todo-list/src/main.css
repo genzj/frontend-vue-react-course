@@ -1,0 +1,12 @@
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.done {
+    text-decoration: line-through;
+    color: #ccc;
+}
+
+[v-cloak] {
+    display: none;
+}
