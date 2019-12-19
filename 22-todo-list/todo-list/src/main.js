@@ -23,11 +23,15 @@ window.vm = new Vue({
       };
     }
   },
-  // watch: {
-  //   todos: function() {
-  //     this.updateTitle();
-  //   }
-  // },
+  watch: {
+    todos: {
+      deep: true,
+      immediate: true,
+      handler() {
+        this.updateTitle();
+      },
+    },
+  },
   methods: {
     addTodo(content, done=false) {
       content = content.trim();
@@ -48,18 +52,18 @@ window.vm = new Vue({
       return value.toUpperCase();
     }
   },
-  created() {
-    // this.updateTitle();
-    this.unwatch = this.$watch(
-      'todos',
-      () => this.updateTitle(),
-      {
-        deep: true,
-        immediate: true,
-      }
-    );
-  },
-  beforeDestroy() {
-    this.unwatch && this.unwatch();
-  },
+  // created() {
+  //   // this.updateTitle();
+  //   this.unwatch = this.$watch(
+  //     'todos',
+  //     () => this.updateTitle(),
+  //     {
+  //       deep: true,
+  //       immediate: true,
+  //     }
+  //   );
+  // },
+  // beforeDestroy() {
+  //   this.unwatch && this.unwatch();
+  // },
 });
