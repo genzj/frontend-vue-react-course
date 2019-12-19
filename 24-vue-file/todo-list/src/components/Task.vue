@@ -7,14 +7,14 @@
 
 <script>
 export default {
-    props: ['done', 'content',],
-}
+    props: ["done", "content"]
+};
 </script>
 
 <style scoped>
-    .done {
-        text-decoration: line-through;
-        color: #ccc;
-    }
+.done {
+    text-decoration: line-through;
+    color: #ccc;
+}
 </style>
 

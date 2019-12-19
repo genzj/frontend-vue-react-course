@@ -6,7 +6,7 @@
                 type="text"
                 @keyup.enter="$emit('task-add', {content: $event.target.value, done: $event.ctrlKey})"
                 placeholder="enter task"
-            >
+            />
         </p>
         <p v-if="!todos.length">No todos at this moment.</p>
         <TaskContainer>
@@ -22,20 +22,20 @@
 </template>
 
 <script>
-import Task from './Task';
-import TaskContainer from './TaskContainer';
+import Task from "./Task";
+import TaskContainer from "./TaskContainer";
 
 export default {
-    props: ['todos', 'title'],
+    props: ["todos", "title"],
 
     components: {
         Task,
-        TaskContainer,
+        TaskContainer
     },
 
     filters: {
-        uppercase: function (value) {
-            if (!value) return '';
+        uppercase: function(value) {
+            if (!value) return "";
             value = value.toString();
             return value.toUpperCase();
         }
@@ -47,9 +47,9 @@ export default {
                 total: this.todos.length,
                 done: this.todos.filter(e => e.done).length
             };
-            this.$emit('stat-update', stat);
+            this.$emit("stat-update", stat);
             return stat;
         }
-    },
-}
+    }
+};
 </script>
