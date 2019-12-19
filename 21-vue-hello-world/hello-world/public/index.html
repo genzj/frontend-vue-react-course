@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>hello-world</title>
+</head>
+
+<body>
+  <div id="demo" v-cloak>
+    <h1>{{ title | uppercase }}</h1>
+    <p v-if="!todos.length">No todos at this moment.</p>
+    <ul>
+      <li v-for="todo in todos" :class="{done: todo.done}" @click="todo.done = !todo.done">
+        {{ todo.content }}
+      </li>
+    </ul>
+  </div>
+</body>
+
+</html>
