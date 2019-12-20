@@ -1,0 +1,19 @@
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+
+button {
+    font-size: 1rem;
+    margin-left: 0.5rem;
+}
+
+.wrapper {
+    margin: 40px auto;
+    width: 50%;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
