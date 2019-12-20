@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Define Property</title>
+</head>
+<body>
+
+<script>
+    var _data = {
+            x: 1,
+        }
+
+        var observer = {}
+        var data = observer
+
+        Object.defineProperty(
+            observer,
+            'x',
+            {
+                get: function () {
+                    console.log('get');
+                    return _data.x;
+                },
+                set: function (val) {
+                    console.log('set x to ' + val);
+                    _data.x = val;
+                },
+            }
+        )
+</script>
+</body>
+</html>

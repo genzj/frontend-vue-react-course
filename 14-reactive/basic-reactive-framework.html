@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Basic Reactive Framework</title>
+</head>
+
+<body>
+    <div id="answer-a"></div>
+    <div id="answer-b"></div>
+
+    <script>
+        var _data = {
+            x: 1,
+        }
+
+        var observer = {}
+        var data = observer
+
+        window.data = data
+
+        var watcher = {
+            registry: [],
+            render: null,
+        }
+
+        Object.defineProperty(
+            observer,
+            'x',
+            {
+                get: function () {
+                    if (watcher.render !== null) {
+                        console.log('register')
+                        watcher.registry.push(watcher.render)
+                    }
+                    console.log('get')
+                    return _data.x
+                },
+                set: function (val) {
+                    console.log('set')
+                    _data.x = val
+                    watcher.registry.forEach(r => {
+                        r();
+                    });
+                },
+            }
+        )
+
+        function render1() {
+            document.getElementById('answer-a').textContent = `the answer A is ${data.x}`
+        }
+        function render2() {
+            document.getElementById('answer-b').textContent = `the answer B is ${data.x + 1}`
+        }
+
+        function mount() {
+            watcher.render = render1
+            render1()
+            watcher.render = null
+            
+            watcher.render = render2
+            render2()
+            watcher.render = null
+        }
+
+        mount()
+
+    </script>
+</body>
+
+</html>
